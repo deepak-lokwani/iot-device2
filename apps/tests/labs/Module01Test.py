@@ -1,4 +1,9 @@
 import unittest
+from labs.module01.SystemCpuUtilTask import SystemCpuUtilTask
+from labs.module01.SystemMemUtilTask import SystemMemUtilTask
+# from base64 import test
+
+# from test.test_deque import fail
 
 
 """
@@ -20,22 +25,46 @@ class Module01Test(unittest.TestCase):
 	information (if needed), initialize class-scoped variables, create class-scoped
 	instances of complex objects, initialize any requisite connections, etc.
 	"""
-	def setUp(self):
-		pass
+# 	def setUp(self):
+# 		pass
 
 	"""
 	Use this to tear down any allocated resources after your tests are complete. This
 	is where you may want to release connections, zero out any long-term data, etc.
 	"""
-	def tearDown(self):
-		pass
+# 	def tearDown(self):
+# 		pass
 	
 	"""
 	Place your comments describing the test here.
 	"""
-	def testSomething(self):
-		pass
+# 	def testSomething(self):
+# 		pass
 
+	'''
+	this test class tests if the CPU Utilization data received is a float and 
+	then verifies if it's in within the permissible range of 0-100%, both inclusive
+	'''
+	def testSystemCpuUtilTask(self):
+
+		cpuTestData = SystemCpuUtilTask.getDataFromSensor(self)
+		self.assertTrue(isinstance(cpuTestData, float), 'CPU Utilization is not a float type number') 	#Default Case
+		self.assertTrue(0 <= cpuTestData , 'CPU Usage dropped below 0%') 								#Exception Case 1
+		self.assertTrue(cpuTestData <= 100 , 'CPU Usage shot-up above 100%') 							#Exception Case 2
+		
+		
+	'''
+	This test class tests if the Memory Utilization data received is a float and 
+	then verifies if it's in within the permissible range of 0-100%, both inclusive
+	'''	
+	def testSystemMemUtilTask(self):
+
+		memoryTestData = SystemMemUtilTask.getDataFromSensor(self)
+		self.assertTrue(isinstance(memoryTestData, float), 'Memory utilization is not a float type number')	#Default Case
+		self.assertTrue(0 <= memoryTestData , 'Memory Usage dropped below 0%')								#Exception Case 1
+		self.assertTrue(memoryTestData <= 100, 'Memory Usage shot-up above 100%')							#Exception Case 2
+	
+		
 if __name__ == "__main__":
 	#import sys;sys.argv = ['', 'Test.testName']
 	unittest.main()
