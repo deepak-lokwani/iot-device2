@@ -33,7 +33,7 @@ class SystemPerformanceAdaptor(threading.Thread):
     def setAdaptor(self,S):
         self.begin =S
         print('\n  ')
-        print('##   System Performance Values at the Logged time (at every 4 seconds) :   ##')
+        print('##   System Performance Values at the Logged time (at every 2 seconds) :   ##')
         print('_____________________________________________________________________________')
         
         

@@ -1,4 +1,6 @@
 import unittest
+from labs.common import SensorData 
+from builtins import isinstance
 
 
 """
@@ -21,21 +23,31 @@ class SensorDataTest(unittest.TestCase):
 	instances of complex objects, initialize any requisite connections, etc.
 	"""
 	def setUp(self):
-		pass
+		
+		self.sensorData	=	SensorData.SensorData()
+		
+	
 
 	"""
 	Use this to tear down any allocated resources after your tests are complete. This
 	is where you may want to release connections, zero out any long-term data, etc.
 	"""
 	def tearDown(self):
-		pass
+		self.sensorData = None
+		
 	
 	"""
 	Place your comments describing the test here.
 	"""
-	def testSomething(self):
-		pass
+	def testGetSensorData(self):
+		
+		self.assertTrue(isinstance(self.sensorData.getValue(), 		int), 'The Current Value is not float')
+		self.assertTrue(isinstance(self.sensorData.getAvgValue(), 	int), 'The Average Value is not float')
+		self.assertTrue(isinstance(self.sensorData.getMaxValue(), 	int), 'The Maximum Value is not Float')
+		self.assertTrue(isinstance(self.sensorData.getMinValue(), 	int), 'The Minimum Value is not Float')
+		self.assertTrue(isinstance(self.sensorData.getCount(), 		int), 'The Count Value is not integer')
+		self.assertTrue(isinstance(self.sensorData.name, str), 			  'The name is not String')
 
 if __name__ == "__main__":
-	#import sys;sys.argv = ['', 'Test.testName']
+# 	import sys;sys.argv = ['', 'Test.testName']
 	unittest.main()
