@@ -93,8 +93,8 @@ class TempSensorAdaptorTask(threading.Thread):
                 if (self.prevTempFlag ==True):
                     if(self.prevTemp != self.curTemp): 
                         self.sensorDataMgr.handleSensorData(self, self.curTemp)
-                sleep(self.timeInterval)
-#                 sleep(3)
+#                 sleep(self.timeInterval)
+                sleep(3)
                     
             
             
