@@ -2,6 +2,7 @@
 Created on 08-Feb-2020
 
 @author: deepak
+NUID: 001316769
 '''
 
 '''
@@ -11,9 +12,9 @@ import os
 from datetime import datetime
 
 # Constants
-COMMAND_OFF = 0
-COMMAND_ON = 1
-COMMAND_RESET = 2
+CMD_OFF = 0
+CMD_ON = 1
+CMD_RESET = 2
 
 
 class ActuatorData(object):
